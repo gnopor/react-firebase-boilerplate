@@ -1,0 +1,35 @@
+header {
+  height: 70px;
+  border: 1px solid #333;
+  border-width: 0 0 1px 0;
+}
+
+header nav {
+  height: inherit;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  list-style-type: none;
+  height: 100%;
+}
+
+.menu li:nth-child(1) {
+  position: absolute;
+  left: 0;
+  border: 3px solid #333;
+}
+
+.menu li {
+  font-weight: bold;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.menu li:hover {
+  background: #333;
+  color: #fff;
+}
