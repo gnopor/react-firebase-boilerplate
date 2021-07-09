@@ -1,18 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
+import useAlert from "../../hooks/useAlert";
 
 export default function Home() {
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(false);
+  const { loading, notify } = useAlert();
+
+  const showMessage = (text, is_error = false) => {
+    setError(is_error);
+    setMessage(text);
+  };
+
+  const hideMessage = () => {
+    setMessage();
+  };
+
   return (
     <section className="home container">
       <div className="actions">
+        {/* loading playground */}
         <article>
-          <button>Show loading</button> <button>Hide loading</button>
+          <button onClick={loading.show}>Show loading</button>
+          <button onClick={loading.hide}>Hide loading</button>
         </article>
+
+        {/* notification playground  */}
         <article>
-          <button>Show notification</button> <button>Hide notification</button>
+          <button onClick={() => notify.show({ message: "success message" })}>
+            Show notification success
+          </button>
+          <button
+            onClick={() =>
+              notify.show({ message: "error message", error: true })
+            }
+          >
+            show notification error
+          </button>
         </article>
+
+        {/* message playground  */}
         <article>
-          <button>Shows in form</button> <button>Hide in form</button>
+          {message && (
+            <div
+              style={{
+                color: "#FFF",
+                background: error ? "indianred" : "mediumseagreen",
+              }}
+            >
+              {message}
+
+              <span
+                style={{ margin: "5px", cursor: "pointer" }}
+                onClick={hideMessage}
+              >
+                x
+              </span>
+            </div>
+          )}
+          <button onClick={() => showMessage("success message")}>
+            Shows success message
+          </button>
+          <button onClick={() => showMessage("error message", true)}>
+            show error message
+          </button>
         </article>
       </div>
     </section>
