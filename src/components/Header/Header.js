@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = (props) => {
@@ -7,10 +8,16 @@ const Header = (props) => {
       <nav className="container">
         <ul className="menu">
           <li>
-            <span>BoilerPlate</span>
+            <Link to="/">
+              <span>BoilerPlate</span>
+            </Link>
           </li>
-          <li>Home</li>
-          <li>connection</li>
+          <li>
+            <Link to="update-profile">Update</Link>
+          </li>
+          <li>
+            <Link to="login">Login</Link>
+          </li>
         </ul>
       </nav>
     </header>

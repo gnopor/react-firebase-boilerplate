@@ -17,6 +17,11 @@ header nav {
   height: 100%;
 }
 
+.menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .menu li:nth-child(1) {
   position: absolute;
   left: 0;

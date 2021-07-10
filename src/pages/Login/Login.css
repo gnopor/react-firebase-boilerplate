@@ -1,0 +1,27 @@
+#login-page {
+  flex: 1 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-page button {
+  background: transparent;
+  font-weight: bold;
+  padding: 1em;
+  cursor: pointer;
+}
+
+#login-page form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-page form > * {
+  margin: 10px 0;
+  padding: 10px;
+}
