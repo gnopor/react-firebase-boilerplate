@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import "./Home.css";
+
+import { useAuth } from "../../contexts/AuthContext";
 import useAlert from "../../hooks/useAlert";
+import "./Home.css";
 
 export default function Home() {
+  const { loading, notify } = useAlert();
+  const { logout } = useAuth();
+
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
-  const { loading, notify } = useAlert();
 
   const showMessage = (text, is_error = false) => {
     setError(is_error);
@@ -64,6 +68,11 @@ export default function Home() {
           <button onClick={() => showMessage("error message", true)}>
             show error message
           </button>
+        </article>
+
+        {/* auth playground */}
+        <article>
+          <button onClick={logout}>__LOG OUT__</button>
         </article>
       </div>
     </section>
